@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
+import EditContact from './EditContact';
+import { View, Text, StyleSheet , Image, TouchableOpacity} from "react-native";
 
-import { View, Text, StyleSheet , Image} from "react-native";
-
-export const ContactsScreen = (props) => {
+export const ContactsScreen = (props,{navigation}) => {
     return(
-        <View>
-            <Text> Your Contacts</Text>
+        <View style = {styles.container}>
+            <Text style = {styles.sectionTitle}> Your Contacts</Text>
             
             <View style={styles.item}>
             
@@ -22,14 +22,24 @@ export const ContactsScreen = (props) => {
                     {"Email: "+props.email}
                     </Text>
                 </View>
-                {/* PLEASE CHANGE IMAGE PATH WHEN RUNNING THE APP */}
-                <Image style ={styles.image} source={require('/Users/sabee/Desktop/GNG2101/gng2101-protoype2/assets/edit-icon.png')} /> 
+                
+                <TouchableOpacity onPress={ ()=> EditContact }>
+ 
+                    <Image source={require('../../assets/edit-icon.png')} style = {styles.ImageClass} />
+          
+                </TouchableOpacity>
             </View>
         </View>
     );
 };
 
 const styles =StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: "#E8EAED",
+        paddingTop:50,
+        paddingHorizontal:20
+      },
     item: {
         backgroundColor: '#52CC50',
         padding:15,
@@ -50,7 +60,13 @@ const styles =StyleSheet.create({
 
 
     },
-    image:{
+
+    sectionTitle: {
+        fontSize: 32,
+        fontWeight: "bold",
+      },
+
+    ImageClass:{
         flex: 1,
         width: 19,
         height: 19,
