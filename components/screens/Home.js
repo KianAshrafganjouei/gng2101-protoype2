@@ -53,10 +53,10 @@ const Home = ({navigation})=>{
 
             <FlatList data={checkins} renderItem={({item}) => (
                 <View style={styles.item}>        
-                    <Text>{item.activity}</Text>
-                    <Text>{item.location}</Text>
-                    <Text>{item.date}</Text>
-                    <Text>{item.time}</Text>
+                    <Text>{"Activity: "+item.activity}</Text>
+                    <Text>{"Location: "+item.location}</Text>
+                    <Text>{"Date: "+item.date}</Text>
+                    <Text>{"Time: "+item.time}</Text>
                 </View>
             )}/>
         </View>
