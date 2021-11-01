@@ -45,7 +45,12 @@ const Home = ({navigation})=>{
             <Button title="Add Checkins" onPress={()=>navigation.navigate('Checkins')}></Button>
 
             <FlatList data={checkins} renderItem={({item}) => (
-                <Text style={styles.item}>{item.location}</Text>
+                <View style={styles.item}>        
+                    <Text>{item.activity}</Text>
+                    <Text>{item.location}</Text>
+                    <Text>{item.date}</Text>
+                    <Text>{item.time}</Text>
+                </View>
             )}/>
         </View>
     )
@@ -65,7 +70,9 @@ const styles=StyleSheet.create({
     },
     item: {
         backgroundColor: '#52CC50',
-        padding: 15,
+        padding: 5,
+        marginLeft: 15,
+        marginRight: 15,
         borderRadius: 10,
         flexDirection: 'column',
         alignItems: 'flex-start',
