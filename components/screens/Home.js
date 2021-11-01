@@ -7,58 +7,17 @@ import {
     Button,
     FlatList
 }from 'react-native'
+import { useNavigation } from '@react-navigation/native';
 
-const Home = ({navigation})=>{
-    const [checkins,setCheckins] = useState([
-        {
-          key:"1",
-          activity:"Daily Check-in",
-          location:"Home",
-          time:"10:55am",
-          date:"10/29/2021"
-        },
-        {
-          key:"2",
-          activity:"Hiking",
-          location:"Blue Mountain",
-          time:"11:55am",
-          date:"10/29/2021"
-        },
-        {
-          key:"3",
-          activity:"Daily Check-in",
-          location:"Home",
-          time:"10:55am",
-          date:"10/29/2021"
-        },
-        {
-          key:"4",
-          activity:"Biking",
-          location:"Tornoto Trails",
-          time:"04:15pm",
-          date:"10/29/2021",
-        },
-        {
-          key:"5",
-          activity:"Biking",
-          location:"Tornoto Trails",
-          time:"04:15pm",
-          date:"10/29/2021",
-        },
-        {
-          key:"6",
-          activity:"Biking",
-          location:"Tornoto Trails",
-          time:"04:15pm",
-          date:"10/29/2021",
-        }
-    ]);
+const Home = ({data})=>{
+const navigation = useNavigation()
     return(
         <View style={StyleSheet.container}>
             <Text style={styles.sectionTitle}> Upcoming Check-ins</Text>
             <Button title="Add Checkins" onPress={()=>navigation.navigate('Checkins')}></Button>
+            {console.log(data)}
 
-            <FlatList data={checkins} renderItem={({item}) => (
+            <FlatList data={data} renderItem={({item}) => (
                 <View style={styles.item}>        
                     <Text>{"Activity: "+item.activity}</Text>
                     <Text>{"Location: "+item.location}</Text>
