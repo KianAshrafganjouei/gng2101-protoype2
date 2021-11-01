@@ -2,13 +2,15 @@ import React from 'react'
 import {
     View,
     Text,
-    StyleSheet
+    StyleSheet,
+    TextInput,
+    Button
 }from 'react-native'
-
+import {Formik} from 'formik'
 const Chcekins = (props)=>{
     return(
         <View style={StyleSheet.container}>
-            <Text>check</Text>
+          <Text>check</Text>
         </View>
     )
 }

@@ -44,6 +44,13 @@ const Home = ({navigation})=>{
           location:"Tornoto Trails",
           time:"04:15pm",
           date:"10/29/2021",
+        },
+        {
+          key:"6",
+          activity:"Biking",
+          location:"Tornoto Trails",
+          time:"04:15pm",
+          date:"10/29/2021",
         }
     ]);
     return(
