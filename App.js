@@ -4,11 +4,24 @@ import { StyleSheet, Text, View } from 'react-native';
 import {enableScreens} from 'react-native-screens'
 import Home from "./components/screens/Home"
 import Checkins from "./components/screens/Checkins"
+
 enableScreens();
 import { NavigationContainer } from '@react-navigation/native';
 import {createNativeStackNavigator} from 'react-native-screens/native-stack';
 const Stack = createNativeStackNavigator()
 export default function App() {
+    {/*
+    const [checkins, setCheckins] = useState();
+    const handleCheckin = () => {
+        console.log(checkins);
+    }
+    */}
+    const deleteCheckin = (index) => {
+        let checkinsCopy = [...checkins];
+        checkinsCopy.splice(index, 1);
+        setCheckins(checkinsCopy);
+    }
+    
   const [checkins,setCheckins] = useState([
     {
       key:"1",
@@ -39,6 +52,7 @@ export default function App() {
       date:"10/29/2021"
     }
 ]);
+
   return (
     <NavigationContainer>
       <Stack.Navigator>

@@ -4,7 +4,8 @@ import {
     Text,
     StyleSheet,
     TextInput,
-    Button
+    Button,
+    KeyboardAvoidingView
 }from 'react-native'
 import {Formik} from 'formik'
 const Checkins = ({changeData, data})=>{

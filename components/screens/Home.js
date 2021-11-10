@@ -8,6 +8,7 @@ import {
     FlatList
 }from 'react-native'
 import { useNavigation } from '@react-navigation/native';
+import Checkin from "../Checkin";
 
 const Home = ({data})=>{
 const navigation = useNavigation()
@@ -16,13 +17,20 @@ const navigation = useNavigation()
             <Text style={styles.sectionTitle}> Upcoming Check-ins</Text>
             <Button title="Add Checkins" onPress={()=>navigation.navigate('Checkins')}></Button>
             {console.log(data)}
+            {console.log("data")}
+
 
             <FlatList data={data} renderItem={({item}) => (
-                <View style={styles.item}>        
-                    <Text>{"Activity: "+item.activity}</Text>
+                <View style={styles.item}>
+                    {/* where the checkins go */}
+                    <Checkin activity={item.activity} location={item.location} date={item.date} time={item.time} />
+                    {/*
+                     <Text>{"Activity: "+item.activity}</Text>
                     <Text>{"Location: "+item.location}</Text>
                     <Text>{"Date: "+item.date}</Text>
                     <Text>{"Time: "+item.time}</Text>
+                    */}
+                    
                 </View>
             )}/>
         </View>
