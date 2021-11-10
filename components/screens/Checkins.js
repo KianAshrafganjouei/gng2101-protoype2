@@ -7,30 +7,34 @@ import {
     Button
 }from 'react-native'
 import {Formik} from 'formik'
-const Checkins = ({changeData})=>{
+const Checkins = ({changeData, data})=>{
     return(
         <View style={StyleSheet.container}>
-            <Formik initialValues={{Activity:'',Location:'',Date:'',Time:''}} onSubmit={(values)=>{changeData(values)}}>
+            <Formik initialValues={{activity:'',location:'',date:'',time:'',key:''}} onSubmit={(values)=>{
+              values.key=(data.length+1).toString();
+              console.log(changeData(data.concat(values)))
+            }  
+              }>
                 {(props)=>(
                   <View>
                       <TextInput 
                         placeholder='Reveiw Activity' 
-                        onChangeText={props.handleChange('Activity')}
+                        onChangeText={props.handleChange('activity')}
                         value={props.values.Activity}
                       /> 
                         <TextInput 
                         placeholder='Reveiw Location' 
-                        onChangeText={props.handleChange('Location')}
+                        onChangeText={props.handleChange('location')}
                         value={props.values.Location}
                       /> 
                         <TextInput 
                         placeholder='Reveiw Date' 
-                        onChangeText={props.handleChange('Date')}
+                        onChangeText={props.handleChange('date')}
                         value={props.values.Date}
                       /> 
                       <TextInput 
                         placeholder='Reveiw Time' 
-                        onChangeText={props.handleChange('Time')}
+                        onChangeText={props.handleChange('time')}
                         value={props.values.Time}
                       /> 
 

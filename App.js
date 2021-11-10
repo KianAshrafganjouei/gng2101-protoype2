@@ -33,24 +33,10 @@ export default function App() {
     },
     {
       key:"4",
-      activity:"Biking",
-      location:"Tornoto Trails",
-      time:"04:15pm",
-      date:"10/29/2021",
-    },
-    {
-      key:"5",
-      activity:"Biking",
-      location:"Tornoto Trails",
-      time:"04:15pm",
-      date:"10/29/2021",
-    },
-    {
-      key:"6",
-      activity:"Biking",
-      location:"Tornoto Trails",
-      time:"04:15pm",
-      date:"10/29/2021",
+      activity:" Hiking",
+      location:"Ottawa",
+      time:"12:00:am",
+      date:"10/29/2021"
     }
 ]);
   return (
@@ -60,7 +46,7 @@ export default function App() {
           {props => <Home data={checkins} screenName={"Checkins"}/>}
           </Stack.Screen>
         <Stack.Screen name="Checkins">
-          {props => <Checkins changeData={setCheckins}/>}
+          {props => <Checkins data={checkins} changeData={setCheckins}/>}
         </Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
