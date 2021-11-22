@@ -4,6 +4,8 @@ import { StyleSheet, Text, View } from 'react-native';
 import {enableScreens} from 'react-native-screens'
 import Home from "./components/screens/Home"
 import Checkins from "./components/screens/Checkins"
+import Settings from "./components/screens/Settings"
+import Contacts from "./components/screens/Contacts"
 
 enableScreens();
 import { NavigationContainer } from '@react-navigation/native';
@@ -53,15 +55,45 @@ export default function App() {
     }
 ]);
 
+const [contacts,setContacts] = useState([
+  {
+    key:"1",
+    name:"David",
+    phone:"111222333",
+    email:"test@gmail.com",
+    priority:"1"
+  },
+  {
+    key:"2",
+    name:"Emil",
+    phone:"222222333",
+    email:"test@gmail.com",
+    priority:"2"
+  }
+]);
+
+const [settings,setSettings] = useState({name:"Kian",phone:"111222333",email:"test@gmail.com"});
+
+
   return (
     <NavigationContainer>
       <Stack.Navigator>
           <Stack.Screen name="Home">
           {props => <Home data={checkins} screenName={"Checkins"}/>}
           </Stack.Screen>
+
         <Stack.Screen name="Checkins">
           {props => <Checkins data={checkins} changeData={setCheckins}/>}
         </Stack.Screen>
+
+        <Stack.Screen name="Settings">
+          {props => <Settings data={settings} changeData={setSettings}/>}
+        </Stack.Screen>
+
+        <Stack.Screen name="Contacts">
+          {props => <Contacts data={contacts} changeData={setContacts}/>}
+        </Stack.Screen>
+
       </Stack.Navigator>
     </NavigationContainer>
   );

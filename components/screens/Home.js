@@ -16,6 +16,9 @@ const navigation = useNavigation()
         <View style={StyleSheet.container}>
             <Text style={styles.sectionTitle}> Upcoming Check-ins</Text>
             <Button title="Add Checkins" onPress={()=>navigation.navigate('Checkins')}></Button>
+            <Button title="Settings" onPress={()=>navigation.navigate('Settings')}></Button>
+            <Button title="Contacts" onPress={()=>navigation.navigate('Contacts')}></Button>
+
             {console.log(data)}
             {console.log("data")}
 
@@ -59,7 +62,6 @@ const styles=StyleSheet.create({
         alignItems: 'flex-start',
         justifyContent: 'space-between',
         marginBottom: 20,
-        
       },
   });
   
