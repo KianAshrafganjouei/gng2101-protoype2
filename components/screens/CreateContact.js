@@ -20,11 +20,13 @@ const CreateContact = ({ changeData }) => {
                             value={props.values.Activity}
                         />
                         <TextInput
+                            style = {styles.inputStyle}
                             placeholder='Contact Email'
                             onChangeText={props.handleChange('Email')}
                             value={props.values.Location}
                         />
                         <TextInput
+                            style = {styles.inputStyle}
                             placeholder='Contact Phone Number'
                             onChangeText={props.handleChange('Date')}
                             value={props.values.Date}
