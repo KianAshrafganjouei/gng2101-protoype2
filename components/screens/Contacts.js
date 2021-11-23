@@ -20,22 +20,30 @@ const Contacts = ({changeData, data})=>{
               }>
                 {(props)=>(
                   <View>
-                      <TextInput 
+                      <Text style = {styles.inputTitle}> Name: </Text>
+                      <TextInput
+                        style = {styles.inputStyle} 
                         placeholder='Reveiw name' 
                         onChangeText={props.handleChange('name')}
                         value={props.values.name}
                       /> 
+                        <Text style = {styles.inputTitle}> Phone Number: </Text>
                         <TextInput 
+                        style = {styles.inputStyle}
                         placeholder='Reveiw phone' 
                         onChangeText={props.handleChange('phone')}
                         value={props.values.phone}
                       /> 
+                        <Text style = {styles.inputTitle}> Email: </Text>
                         <TextInput 
+                        style = {styles.inputStyle}
                         placeholder='Reveiw email' 
                         onChangeText={props.handleChange('email')}
                         value={props.values.email}
                       /> 
+                      <Text style = {styles.inputTitle}> Priority: </Text>
                       <TextInput 
+                        style = {styles.inputStyle}
                         placeholder='Reveiw priority' 
                         onChangeText={props.handleChange('priority')}
                         value={props.values.priority}
@@ -69,5 +77,17 @@ const styles = StyleSheet.create({
         flex:1,
         alignItems: 'center',
         justifyContent: 'center'
-    }
+    },
+    inputStyle: {
+      height: 40,
+      margin: 12,
+      borderWidth: 1,
+      padding: 10,
+  },
+  
+  inputTitle: {
+      fontSize: 15,
+      fontWeight: 'bold',
+      padding: 3
+  },
 })

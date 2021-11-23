@@ -1,4 +1,3 @@
-//install using command: npm install react-native-datepicker --save
 //npm install @react-native-community/datetimepicker --save
 
 import React, {useState} from 'react'
