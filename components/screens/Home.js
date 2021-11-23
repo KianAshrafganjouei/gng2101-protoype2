@@ -19,9 +19,6 @@ const navigation = useNavigation()
             <Button title="Settings" onPress={()=>navigation.navigate('Settings')}></Button>
             <Button title="Contacts" onPress={()=>navigation.navigate('Contacts')}></Button>
 
-            {console.log(data)}
-            {console.log("data")}
-
 
             <FlatList data={data} renderItem={({item}) => (
                 <View style={styles.item}>

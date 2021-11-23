@@ -14,13 +14,14 @@ const Settings = ({changeData, data})=>{
             <Formik initialValues={{name:data.name,phone:data.phone,email:data.email}} onSubmit={(values)=>{
               changeData(values)
               const requestOptions={
-                  method:"POST",
-                  headers:{'content-Type':'application/json'},
-                  body: JSON.stringify({day:1, year:2, month:2,hour:1,minute:1 })
+                  method:"post",
+                  headers:{'Content-Type':'application/json','Accept':'application/json'},
+                  body: JSON.stringify({day:1, year:2, month:2,hour:1, minute:1 })
               }
               fetch("https://gng2101-app.herokuapp.com/create",requestOptions)
-                //.then(response=>console.log(response.json()))
-                
+                .then(response=>{
+                    console.log(response.status)
+                })
             }  
               }>
                 {(props)=>(

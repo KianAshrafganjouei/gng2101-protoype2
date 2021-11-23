@@ -57,7 +57,6 @@ const Contacts = ({changeData, data})=>{
                     <Text>{"Date: "+item.date}</Text>
                     <Text>{"Time: "+item.time}</Text>
                     */}
-                    
                 </View>
             )}/>
         </View>

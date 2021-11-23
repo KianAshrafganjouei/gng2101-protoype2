@@ -40,6 +40,8 @@ const Checkins = ({changeData, data})=>{
     return(
         <View style={StyleSheet.container}>
             <Formik initialValues={{activity:'',location:'',date:'',time:'',key:''}} onSubmit={(values)=>{
+              values.time=textTime;
+              values.date=textDate;
               values.key=(data.length+1).toString();
               console.log(changeData(data.concat(values)))
             }  
@@ -51,14 +53,14 @@ const Checkins = ({changeData, data})=>{
                         style = {styles.inputStyle}
                         placeholder='Reveiw Activity' 
                         onChangeText={props.handleChange('activity')}
-                        value={props.values.Activity}
+                        value={props.values.activity}
                       /> 
                         <Text style = {styles.inputTitle}> Location: </Text>
                         <TextInput 
                         style = {styles.inputStyle}
                         placeholder='Reveiw Location' 
                         onChangeText={props.handleChange('location')}
-                        value={props.values.Location}
+                        value={props.values.location}
                       /> 
                         <Text style = {styles.inputTitle}> Pick Date and Time: </Text>
                         
@@ -74,11 +76,12 @@ const Checkins = ({changeData, data})=>{
                         value={props.values.Time}
                       />  */}
                       
-                      <Button title='Set Date' onPress={() => showMode('date')}/>
-                      <Text style = {styles.displayDate}> {textDate} </Text>
-                      <Button title='Set Time' onPress={() => showMode('time')}/>
-                      <Text style = {styles.displayDate}> {textTime} </Text>
-                      
+                      <Button title='Set Date' onPress={() => showMode('date')} value={props.values.date}/>
+                      <Text style = {styles.displayDate} > {textDate} </Text>
+                      <Button title='Set Time' onPress={() => showMode('time')} value={props.values.time}/>
+                      <Text style = {styles.displayDate} > {textTime} </Text>
+
+
                       {show && (
                           <DateTimePicker
                           testID = 'dateTimePicker'
@@ -87,6 +90,7 @@ const Checkins = ({changeData, data})=>{
                           is24Hour = {true}
                           display = 'default'
                           onChange = {onChange}
+                          
                           />)}
                         
                       <Button title='Create Checkin' color='maroon' onPress={props.handleSubmit}/>
