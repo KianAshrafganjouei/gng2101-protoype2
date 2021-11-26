@@ -27,9 +27,16 @@ const Contact = (props) => {
 
 const styles = StyleSheet.create({
     item: {
-        margin:5,
-        marginLeft: 15
-    },
+        backgroundColor: '#52CC50',
+        padding: 5,
+        marginLeft: 15,
+        marginRight: 15,
+        borderRadius: 10,
+        flexDirection: 'column',
+        alignItems: 'flex-start',
+        justifyContent: 'space-between',
+        marginBottom: 20,
+      },
     text : {
         opacity: 1.0,
     },
@@ -48,17 +55,19 @@ const styles = StyleSheet.create({
     },
     delete: {
         
-        backgroundColor: '#FF0000',
+        backgroundColor: '#c41d2e',
+        padding:4,
         opacity: 0.5,
         borderRadius: 5,
         marginRight: 15,
     },
     edit: {
 
-        backgroundColor: '#FF0000',
+        backgroundColor: '#c41d2e',
+        padding:4,
         opacity: 0.5,
         borderRadius: 5,
         marginRight: 15,
-    }
+    },
 })
 export default Contact;

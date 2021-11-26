@@ -5,7 +5,7 @@ import {
     Text,
     StyleSheet,
     Button,
-    FlatList
+    FlatList,TouchableOpacity
 }from 'react-native'
 import { useNavigation } from '@react-navigation/native';
 import Checkin from "../Checkin";
@@ -13,11 +13,23 @@ import Checkin from "../Checkin";
 const Home = ({data})=>{
 const navigation = useNavigation()
     return(
-        <View style={StyleSheet.container}>
-            <Text style={styles.sectionTitle}> Upcoming Check-ins</Text>
-            <Button title="Add Checkins" onPress={()=>navigation.navigate('Checkins')}></Button>
-            <Button title="Settings" onPress={()=>navigation.navigate('Settings')}></Button>
-            <Button title="Contacts" onPress={()=>navigation.navigate('Contacts')}></Button>
+        <View style={styles.container}>
+
+
+            <View style={styles.conbutton}>
+
+                <TouchableOpacity onPress={()=>navigation.navigate('Checkins')} style={styles.appButtonContainer}>
+                <Text style={styles.appButtonText}>Checkins</Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={()=>navigation.navigate('Settings')} style={styles.appButtonContainer}>
+                <Text style={styles.appButtonText}>Settings</Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={()=>navigation.navigate('Contacts')} style={styles.appButtonContainer}>
+                <Text style={styles.appButtonText}>Contacts</Text>
+                </TouchableOpacity>
+            </View>
+
+            <Text style={styles.sectionTitle}> Upcoming Check-ins:</Text>
 
 
             <FlatList data={data} renderItem={({item}) => (
@@ -42,12 +54,13 @@ const styles=StyleSheet.create({
     container: {
       flex: 1,
       backgroundColor: "#E8EAED",
-      paddingTop:50,
-      paddingHorizontal:20
+      paddingTop:10,
+      paddingHorizontal:10
     },
     sectionTitle: {
       fontSize: 32,
       fontWeight: "bold",
+      paddingBottom: 10
     },
     item: {
         backgroundColor: '#52CC50',
@@ -60,5 +73,25 @@ const styles=StyleSheet.create({
         justifyContent: 'space-between',
         marginBottom: 20,
       },
+      appButtonContainer: {
+        elevation: 8,
+        backgroundColor: "#1dc44a",
+        borderRadius: 10,
+        paddingVertical: 10,
+        paddingHorizontal: 12,
+        margin: 10,
+      },
+      appButtonText: {
+        fontSize: 14,
+        color: "#fff",
+        fontWeight: "bold",
+        alignSelf: "center",
+        textTransform: "uppercase"
+      },
+      conbutton:{
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }
   });
   

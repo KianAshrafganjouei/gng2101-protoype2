@@ -48,17 +48,20 @@ const styles = StyleSheet.create({
     },
     delete: {
         
-        backgroundColor: '#FF0000',
+        backgroundColor: '#c41d2e',
+        padding:4,
         opacity: 0.5,
         borderRadius: 5,
         marginRight: 15,
     },
     edit: {
 
-        backgroundColor: '#FF0000',
+        backgroundColor: '#c41d2e',
         opacity: 0.5,
         borderRadius: 5,
         marginRight: 15,
+        padding:4
+
     }
 })
 export default Checkin;

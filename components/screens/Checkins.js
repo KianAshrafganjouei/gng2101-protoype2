@@ -9,7 +9,8 @@ import {
     StyleSheet,
     TextInput,
     Button,
-    KeyboardAvoidingView
+    KeyboardAvoidingView,
+    TouchableOpacity
 }from 'react-native'
 import {Formik} from 'formik'
 const Checkins = ({changeData, data})=>{
@@ -75,11 +76,16 @@ const Checkins = ({changeData, data})=>{
                         value={props.values.Time}
                       />  */}
                       
-                      <Button title='Set Date' onPress={() => showMode('date')} value={props.values.date}/>
-                      <Text style = {styles.displayDate} > {textDate} </Text>
-                      <Button title='Set Time' onPress={() => showMode('time')} value={props.values.time}/>
-                      <Text style = {styles.displayDate} > {textTime} </Text>
 
+                      <TouchableOpacity onPress={() => showMode('date')} style={styles.appButtonContainer}>
+                      <Text style={styles.appButtonText}>SET DATE</Text>
+                      </TouchableOpacity>
+                      <Text style = {styles.displayDate} > {textDate} </Text>
+
+                      <TouchableOpacity onPress={() => showMode('time')} style={styles.appButtonContainer}>
+                      <Text style={styles.appButtonText}>SET TIME</Text>
+                      </TouchableOpacity>
+                      <Text style = {styles.displayDate} > {textTime} </Text>
 
                       {show && (
                           <DateTimePicker
@@ -89,13 +95,16 @@ const Checkins = ({changeData, data})=>{
                           is24Hour = {true}
                           display = 'default'
                           onChange = {onChange}
+                          style = {styles.cal}
                           
                           />)}
-                        
-                      <Button title='Create Checkin' color='maroon' onPress={props.handleSubmit}/>
+                      <TouchableOpacity onPress={props.handleSubmit} style={styles.appButtonContainer}>
+                      <Text style={styles.appButtonText}>Create Checkin</Text>
+                      </TouchableOpacity>
                   </View>  
                 )}
             </Formik>
+            
         </View>
     )
 }
@@ -113,6 +122,10 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         padding: 10,
     },
+    cal:{
+      marginHorizontal:135
+
+    },
     
     inputTitle: {
         fontSize: 15,
@@ -122,6 +135,28 @@ const styles = StyleSheet.create({
     displayDate: {
         fontSize: 15,
         padding: 3,
-        marginLeft: 150
+        marginLeft: 10,
+        flexDirection: 'column',    
+    },
+    appButtonContainer: {
+      elevation: 8,
+      backgroundColor: "#1dc44a",
+      borderRadius: 10,
+      paddingVertical: 10,
+      paddingHorizontal: 12,
+      margin: 10,
+    },
+    appButtonText: {
+      fontSize: 14,
+      color: "#fff",
+      fontWeight: "bold",
+      alignSelf: "center",
+      textTransform: "uppercase"
+    },
+    conbutton:{
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'center',
     }
+  
 })

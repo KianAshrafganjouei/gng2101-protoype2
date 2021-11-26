@@ -27,32 +27,11 @@ export default function App() {
   const [checkins,setCheckins] = useState([
     {
       key:"1",
-      activity:"Daily Check-in",
+      activity:"Biking",
       location:"Home",
-      time:"10:55am",
+      time:"10h 10mins",
       date:"10/29/2021"
     },
-    {
-      key:"2",
-      activity:"Hiking",
-      location:"Blue Mountain",
-      time:"11:55am",
-      date:"10/29/2021"
-    },
-    {
-      key:"3",
-      activity:"Daily Check-in",
-      location:"Home",
-      time:"10:55am",
-      date:"10/29/2021"
-    },
-    {
-      key:"4",
-      activity:" Hiking",
-      location:"Ottawa",
-      time:"12:00:am",
-      date:"10/29/2021"
-    }
 ]);
 
 const [contacts,setContacts] = useState([
@@ -62,13 +41,6 @@ const [contacts,setContacts] = useState([
     phone:"111222333",
     email:"test@gmail.com",
     priority:"1"
-  },
-  {
-    key:"2",
-    name:"Emil",
-    phone:"222222333",
-    email:"test@gmail.com",
-    priority:"2"
   }
 ]);
 

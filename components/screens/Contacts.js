@@ -6,7 +6,7 @@ import {
     TextInput,
     Button,
     KeyboardAvoidingView,
-    FlatList
+    FlatList,TouchableOpacity
 }from 'react-native'
 import {Formik} from 'formik'
 import Contact from '../Contact'
@@ -49,11 +49,14 @@ const Contacts = ({changeData, data})=>{
                         value={props.values.priority}
                       /> 
 
-
-                      <Button title='Create Contact' color='maroon' onPress={props.handleSubmit}/>
+                      <TouchableOpacity onPress={props.handleSubmit} style={styles.appButtonContainer}>
+                      <Text style={styles.appButtonText}>Create Contact</Text>
+                      </TouchableOpacity>
+                      
                   </View>  
                 )}
             </Formik>
+            <Text style={styles.sectionTitle}> Your Contacts:</Text>
 
             <FlatList data={data} renderItem={({item}) => (
                 <View style={styles.item}>
@@ -83,6 +86,11 @@ const styles = StyleSheet.create({
       margin: 12,
       borderWidth: 1,
       padding: 10,
+  },   
+   sectionTitle: {
+    fontSize: 32,
+    fontWeight: "bold",
+    paddingBottom: 10
   },
   
   inputTitle: {
@@ -90,4 +98,25 @@ const styles = StyleSheet.create({
       fontWeight: 'bold',
       padding: 3
   },
+  appButtonContainer: {
+    elevation: 8,
+    backgroundColor: "#1dc44a",
+    borderRadius: 10,
+    paddingVertical: 10,
+    paddingHorizontal: 12,
+    margin: 10,
+    marginHorizontal:70
+  },
+  appButtonText: {
+    fontSize: 14,
+    color: "#fff",
+    fontWeight: "bold",
+    alignSelf: "center",
+    textTransform: "uppercase"
+  },
+  conbutton:{
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+  }
 })
