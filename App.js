@@ -28,7 +28,7 @@ export default function App() {
     {
       key:"1",
       activity:"Biking",
-      location:"Home",
+      location:"Ottawa",
       time:"10h 10mins",
       date:"10/29/2021"
     },
