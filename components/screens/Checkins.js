@@ -19,7 +19,9 @@ const Checkins = ({changeData, data})=>{
     const [show, setShow] = useState(false);
     const [textDate, setTextDate] = useState('Empty');
     const [textTime, setTextTime] = useState('Empty');
+    const [dbdate, setDbdate] = useState(new Date());;
 
+  
     const onChange = (event,selectedDate) => {
         const currentDate = selectedDate || dateDefault;
         setDate(currentDate);
@@ -30,6 +32,13 @@ const Checkins = ({changeData, data})=>{
         
         setTextDate(fdate);
         setTextTime(fTime);
+     //   console.log("tmpDate");
+     //   console.log(tmpDate);
+
+        setDbdate(currentDate);
+    //    console.log(tmpDate.getHours())
+       
+       
     }
 
     const showMode = (currentMode) => {
@@ -39,7 +48,7 @@ const Checkins = ({changeData, data})=>{
 
     return(
         <View style={StyleSheet.container}>
-            <Formik initialValues={{activity:'',location:'',date:'',time:'',key:''}} onSubmit={(values)=>{
+            <Formik initialValues={{activity:'',location:'',date:'',time:'',key:'', month:'', year:''}} onSubmit={(values)=>{
               values.time=textTime;
               values.date=textDate;
             
