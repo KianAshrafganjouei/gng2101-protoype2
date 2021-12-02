@@ -5,12 +5,14 @@ import {
     Text,
     StyleSheet,
     Button,
-    FlatList,TouchableOpacity
+    FlatList,TouchableOpacity,TextInput
 }from 'react-native'
 import { useNavigation } from '@react-navigation/native';
 import Checkin from "../Checkin";
+import {Formik} from 'formik'
 
-const Home = ({data})=>{
+
+const Home = ({data, changeData})=>{
 const navigation = useNavigation()
     return(
         <View style={styles.container}>
@@ -19,7 +21,7 @@ const navigation = useNavigation()
             <View style={styles.conbutton}>
 
                 <TouchableOpacity onPress={()=>navigation.navigate('Checkins')} style={styles.appButtonContainer}>
-                <Text style={styles.appButtonText}>Checkins</Text>
+                <Text style={styles.appButtonText}>Check-ins</Text>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={()=>navigation.navigate('Settings')} style={styles.appButtonContainer}>
                 <Text style={styles.appButtonText}>Settings</Text>
@@ -28,6 +30,28 @@ const navigation = useNavigation()
                 <Text style={styles.appButtonText}>Contacts</Text>
                 </TouchableOpacity>
             </View>
+
+            <Formik initialValues={{confirmText:''}} onSubmit={(values)=>{
+              if(values.confirmText.toLocaleLowerCase()=="yes")
+                changeData(data.slice(1,data.length))
+            }  
+              }>
+                {(props)=>(
+                  <View>
+                      <Text style = {styles.inputTitle}> Confirm upcoming check-in: </Text>
+                      <TextInput 
+                        style = {styles.inputStyle}
+                        placeholder='Type "yes" to confirm' 
+                        onChangeText={props.handleChange('confirmText')}
+                        value={props.values.confirmText}
+                      /> 
+                      <TouchableOpacity onPress={props.handleSubmit} style={styles.appButtonContainer}>
+                      <Text style={styles.appButtonText}>Confirm Check-in</Text>
+                      </TouchableOpacity>
+                  </View>  
+                )}
+            </Formik>
+
 
             <Text style={styles.sectionTitle}> Upcoming Check-ins:</Text>
 
@@ -92,6 +116,22 @@ const styles=StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
-      }
+      },
+      inputStyle: {
+        height: 40,
+        margin: 12,
+        borderWidth: 1,
+        padding: 10,
+    },
+    cal:{
+      marginHorizontal:135
+
+    },
+    
+    inputTitle: {
+        fontSize: 15,
+        fontWeight: 'bold',
+        padding: 3
+    },
   });
   

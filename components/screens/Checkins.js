@@ -42,9 +42,8 @@ const Checkins = ({changeData, data})=>{
             <Formik initialValues={{activity:'',location:'',date:'',time:'',key:''}} onSubmit={(values)=>{
               values.time=textTime;
               values.date=textDate;
-              values.key=(data.length+1).toString();
-              console.log(changeData(data.concat(values)))
-            }  
+            
+              changeData(data.concat(values).reverse())            }  
               }>
                 {(props)=>(
                   <View>

@@ -51,7 +51,7 @@ const [settings,setSettings] = useState({name:"Kian",phone:"111222333",email:"te
     <NavigationContainer>
       <Stack.Navigator>
           <Stack.Screen name="Home">
-          {props => <Home data={checkins} screenName={"Checkins"}/>}
+          {props => <Home data={checkins} changeData={setCheckins} screenName={"Checkins"}/>}
           </Stack.Screen>
 
         <Stack.Screen name="Checkins">
