@@ -19,7 +19,9 @@ const Checkins = ({changeData, data})=>{
     const [show, setShow] = useState(false);
     const [textDate, setTextDate] = useState('Empty');
     const [textTime, setTextTime] = useState('Empty');
+    const [dbdate, setDbdate] = useState(new Date());;
 
+  
     const onChange = (event,selectedDate) => {
         const currentDate = selectedDate || dateDefault;
         setDate(currentDate);
@@ -30,6 +32,13 @@ const Checkins = ({changeData, data})=>{
         
         setTextDate(fdate);
         setTextTime(fTime);
+     //   console.log("tmpDate");
+     //   console.log(tmpDate);
+
+        setDbdate(currentDate);
+    //    console.log(tmpDate.getHours())
+       
+       
     }
 
     const showMode = (currentMode) => {
@@ -39,11 +48,39 @@ const Checkins = ({changeData, data})=>{
 
     return(
         <View style={StyleSheet.container}>
-            <Formik initialValues={{activity:'',location:'',date:'',time:'',key:''}} onSubmit={(values)=>{
+            <Formik initialValues={{activity:'',location:'',date:'',time:'',key:'', month:'', year:''}} onSubmit={(values)=>{
               values.time=textTime;
               values.date=textDate;
               values.key=(data.length+1).toString();
-              console.log(changeData(data.concat(values)))
+                console.log(changeData(data.concat(values)))
+                console.log(values.activity)
+                console.log(values.date)             
+
+                console.log("db")
+                console.log(dbdate)
+                console.log("db dta ")
+                console.log(dbdate.getDate())
+                console.log("db h")
+                console.log(dbdate.getHours())
+
+                const requestOptions = {
+                    method: "post",
+                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                    body: JSON.stringify({ month: dbdate.getMonth(), day: dbdate.getDate(), hour: dbdate.getHours(), minute: dbdate.getMinutes(), repeating: 'true', dayOfWeek:dbdate.getDate(), year: dbdate.getFullYear(), userID: 10, graceHours: 1, graceMinutes: 0 })
+                }
+                fetch("https://gng2101-app.herokuapp.com/createCheckin", requestOptions)
+                    .then(response => {
+                        console.log("createCheckin status : " + response.status)
+                    })
+
+
+
+
+                
+                
+              
+
+             
             }  
               }>
                 {(props)=>(

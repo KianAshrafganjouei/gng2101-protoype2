@@ -15,7 +15,16 @@ const Contacts = ({changeData, data})=>{
         <View style={StyleSheet.container}>
             <Formik initialValues={{name:'',phone:'',email:'',priority:'',key:''}} onSubmit={(values)=>{
               values.key=(data.length+1).toString();
-              console.log(changeData(data.concat(values)))
+                console.log(changeData(data.concat(values)))
+                const requestOptions = {
+                    method: "post",
+                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                    body: JSON.stringify({ userID: 10, phoneNumber: values.phone, priority: values.priority })
+                }
+                fetch("https://gng2101-app.herokuapp.com/createContact", requestOptions)
+                    .then(response => {
+                        console.log("createContact status : " + response.status)
+                    })
             }  
               }>
                 {(props)=>(
